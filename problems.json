@@ -1,0 +1,16 @@
+[
+    {
+        "name": "Two sum",
+        "platform": "GFG",
+        "topic": "Arrays",
+        "difficulty": "Easy",
+        "status": "Solved"
+    },
+    {
+        "name": "Three Sum",
+        "platform": "GFG",
+        "topic": "Arrays",
+        "difficulty": "Medium",
+        "status": "Solved"
+    }
+]
