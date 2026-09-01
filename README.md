@@ -1,26 +1,33 @@
 # 🧠 DSA Practice Tracker
 
-A simple Streamlit-based web application to track and manage DSA practice problems.
+A simple Streamlit-based web application to help students record, organize, and track their Data Structures and Algorithms (DSA) practice.
 
-## Features
+## ✨ Features
 
-- Add DSA problems
-- Track problem status
-- Mark problems as solved
-- Search problems by topic
-- View Easy, Medium and Hard statistics
-- View overall solving progress
-- Store problems using JSON
+- ➕ Add DSA problems
+- 📋 View all recorded problems
+- ✅ Mark problems as solved
+- 🔎 Search problems by topic
+- 📊 View statistics by difficulty
+- 📈 Track overall solving progress
+- 💾 Store problem data using JSON
+- 🌐 Interactive Streamlit web interface
 
-## Technologies Used
+## 🛠️ Technologies Used
 
 - Python
 - Streamlit
 - JSON
+- Git & GitHub
 
-## How to Run
+## 📂 Project Structure
 
-### 1. Clone the repository
-
-```bash
-git clone <repository-url>
+```text
+DSA-Tracker/
+│
+├── app.py              # Streamlit application
+├── dsa_tracker.py      # CLI version and core logic
+├── problems.json       # Stored DSA problems
+├── requirements.txt    # Python dependencies
+├── README.md           # Project documentation
+└── .gitignore          # Ignored files
