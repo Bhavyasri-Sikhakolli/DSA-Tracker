@@ -1,14 +1,14 @@
 [
     {
         "name": "Two sum",
-        "platform": "GFG",
+        "platform": "GeeksForGeeks",
         "topic": "Arrays",
         "difficulty": "Easy",
         "status": "Solved"
     },
     {
         "name": "Three Sum",
-        "platform": "GFG",
+        "platform": "GeeksForGeeks",
         "topic": "Arrays",
         "difficulty": "Medium",
         "status": "Solved"
@@ -17,6 +17,13 @@
         "name": "Closest Three sum",
         "platform": "GeeksforGeeks",
         "topic": "Arrays",
+        "difficulty": "Medium",
+        "status": "Solved"
+    },
+    {
+        "name": "Binary Search",
+        "platform": "HackerRank",
+        "topic": "Searching",
         "difficulty": "Medium",
         "status": "Solved"
     }
