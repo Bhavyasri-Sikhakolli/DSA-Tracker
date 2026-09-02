@@ -12,5 +12,12 @@
         "topic": "Arrays",
         "difficulty": "Medium",
         "status": "Solved"
+    },
+    {
+        "name": "Closest Three sum",
+        "platform": "GeeksforGeeks",
+        "topic": "Arrays",
+        "difficulty": "Medium",
+        "status": "Solved"
     }
 ]
