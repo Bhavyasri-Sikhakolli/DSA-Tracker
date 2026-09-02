@@ -110,20 +110,49 @@ with st.form("add_problem_form"):
 
             st.success(f"'{name}' added successfully! 🎉")
             st.rerun()
+# ---------- FILTER PROBLEMS ----------
 
+st.header("🎯 Filter Problems")
+
+filter_col1, filter_col2, filter_col3 = st.columns(3)
+
+with filter_col1:
+    difficulty_filter = st.selectbox(
+        "Difficulty",
+        ["All", "Easy", "Medium", "Hard"]
+    )
+
+with filter_col2:
+    status_filter = st.selectbox(
+        "Status",
+        ["All", "Solved", "Pending"]
+    )
+
+with filter_col3:
+    platform_filter = st.selectbox(
+        "Platform",
+        ["All", "GeeksforGeeks", "LeetCode", "HackerRank", "Other"]
+    )
+
+
+filtered_problems = [
+    problem for problem in problems
+    if (difficulty_filter == "All" or problem["difficulty"] == difficulty_filter)
+    and (status_filter == "All" or problem["status"] == status_filter)
+    and (platform_filter == "All" or problem["platform"] == platform_filter)
+]
 
 # ---------- VIEW PROBLEMS ----------
 
 st.header("📋 Your Problems")
 
-if len(problems) == 0:
+if len(filtered_problems) == 0:
 
-    st.info("No problems added yet. Add your first DSA problem above!")
+    st.info("No problems match the selected filters.")
 
 else:
 
-    for i, problem in enumerate(problems):
-
+    for problem in filtered_problems:
         with st.container(border=True):
 
             col1, col2, col3, col4 = st.columns([3, 2, 2, 1])
@@ -144,13 +173,12 @@ else:
                     st.success("Solved ✅")
 
                 else:
-                    if st.button("Mark Solved", key=f"solve_{i}"):
+                    if st.button("Mark Solved", key=f"solve_{problems.index(problem)}"):
 
-                        problems[i]["status"] = "Solved"
+                        problems[problems.index(problem)]["status"] = "Solved"
                         save_problems(problems)
 
                         st.rerun()
-
 
 # ---------- SEARCH BY TOPIC ----------
 
@@ -214,10 +242,30 @@ if problems:
         else:
             topics[topic] = 1
 
-    st.subheader("Problems by Topic")
+    st.subheader("📈 Topic-wise Progress")
 
-    st.bar_chart(topics)
+    topic_progress = {}
 
+    for problem in problems:
+        topic = problem["topic"]
+
+        if topic not in topic_progress:
+            topic_progress[topic] = {
+                "Solved": 0,
+                "Total": 0
+            }
+
+        topic_progress[topic]["Total"] += 1
+
+        if problem["status"] == "Solved":
+            topic_progress[topic]["Solved"] += 1
+
+    for topic, data in topic_progress.items():
+        solved = data["Solved"]
+        total = data["Total"]
+
+        st.write(f"**{topic}** — {solved}/{total} solved")
+        st.progress(solved / total)
 else:
 
     st.info("Add some problems to see your statistics.")
